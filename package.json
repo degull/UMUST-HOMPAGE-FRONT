@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.5",
+    "gh-pages": "^6.1.1",
     "next": "^12.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -22,9 +23,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "cp build/index.html build/404.html",
+    "deploy": "gh-pages -d build"
   },
-  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE/",
+  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -43,5 +46,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy" : "http://umust302.ap-northeast-2.elasticbeanstalk.com"
+  "proxy": "http://umust302.ap-northeast-2.elasticbeanstalk.com"
 }
