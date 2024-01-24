@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://umust302.ap-northeast-2.elasticbeanstalk.com"
+  "proxy": "https://eb-umust.umust302.shop"
 }
