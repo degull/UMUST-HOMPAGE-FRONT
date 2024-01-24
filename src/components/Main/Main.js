@@ -5,6 +5,14 @@ import axios from 'axios';
 
 // const backendBaseUrl = 'http://umust302.ap-northeast-2.elasticbeanstalk.com';
 
+function formatDate(dateTimeString) {
+  const parsedDate = new Date(dateTimeString);
+  const formattedDate = parsedDate.toISOString().split('T')[0];
+  return formattedDate;
+}
+
+
+
 const images = [
   '/img/slide_01.png',
   '/img/slide_02.png',
@@ -200,25 +208,24 @@ const fetchEvents = async () => {
                 <S.PressContainer>
                   {press.map((item, index) => (
                     <S.Press key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
+                      <div>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</div>
+                      <div>{formatDate(item.createdAt)}</div>
                       <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
                     </S.Press>
                   ))}
                 </S.PressContainer>
 
-
-
                 {/* 행사정보 */}
                 <S.EventContainer>
                   {events.map((item, index) => (
                     <S.Event key={index}>
-                      <div>{item.title}</div>
-                      <div>{item.createdAt}</div>
+                      <div>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</div>
+                      <div>{formatDate(item.createdAt)}</div>
                       <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
                     </S.Event>
                   ))}
                 </S.EventContainer>
+
 
             </S.TextContainer>
 
