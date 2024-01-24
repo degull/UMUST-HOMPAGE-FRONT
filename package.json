@@ -1,7 +1,7 @@
 {
   "name": "umust-homepage-fe",
   "version": "0.1.0",
-  "homepage": "https://umust-hompage-gjdxxw23q-degull.vercel.app/",
+  "homepage": "https://umust-hompage.vercel.app/",
   "private": true,
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
