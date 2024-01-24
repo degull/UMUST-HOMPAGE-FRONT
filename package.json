@@ -1,6 +1,7 @@
 {
   "name": "umust-homepage-fe",
   "version": "0.1.0",
+  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE",
   "private": true,
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
@@ -27,7 +28,7 @@
     "postbuild": "cp build/index.html build/404.html",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE",
+  
   "eslintConfig": {
     "extends": [
       "react-app",
