@@ -1,7 +1,7 @@
 {
   "name": "umust-homepage-fe",
   "version": "0.1.0",
-  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE",
+  "homepage": "https://umust-hompage-gjdxxw23q-degull.vercel.app/",
   "private": true,
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
