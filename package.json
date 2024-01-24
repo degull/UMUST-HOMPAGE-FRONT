@@ -24,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://umust-hompage.vercel.app/",
+  "homepage": "https://umustrnd-git.github.io/UMUST-HOMPAGE-FE/",
   "eslintConfig": {
     "extends": [
       "react-app",
