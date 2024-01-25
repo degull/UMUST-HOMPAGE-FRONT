@@ -30,7 +30,7 @@ export default function Main() {
   
   const [events, setEvents] = useState([]); /* 행사정보 */
   
-
+/* 
   useEffect(() => {
     let isMounted = true; 
 
@@ -45,29 +45,98 @@ export default function Main() {
         console.error('보도자료 가져오는데 문제가 발생했:', error);
       }
     };
-  
 
 
 const fetchEvents = async () => {
   try {
     const response = await axios.get('/api/articles/EVENT/latest');
-    setEvents([response.data]);
+    console.log('Response from API:', response.data);
 
+    if (Array.isArray(response.data)) {
+      setEvents(response.data);
+    } else {
+      console.error('Invalid data format for events:', response.data);
+    }
   } catch (error) {
     console.error('행사정보를 가져오는데 문제가 발생했:', error);
   }
 };
-
-
   
     fetchPress();
     fetchEvents();
   
-    return () => {
+return () => {
       isMounted = false;
     };
-  }, []);
-  
+   }, []); 
+
+ */
+
+
+/* useEffect(() => {
+  let isMounted = true;
+
+  const fetchPress = async () => {
+    try {
+      const response = await axios.get('/api/articles/NEWS/latest');
+      if (isMounted) {
+        setPress(response.data);
+      }
+    } catch (error) {
+      console.error('보도자료를 가져오는데 문제가 발생했:', error);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('/api/articles/EVENT/latest');
+      if (isMounted) {
+        setEvents(response.data);
+      }
+    } catch (error) {
+      console.error('행사정보를 가져오는데 문제가 발생했:', error);
+    }
+  };
+
+  fetchPress();
+  fetchEvents();
+
+  return () => {
+    isMounted = false;
+  };
+}, []);
+
+
+ */
+
+useEffect(() => {
+/*   let isMounted = true; 
+ */
+  const fetchPress = async () => {
+    try {
+      const response = await axios.get('/api/articles/NEWS/latest');
+      setPress([response.data]);
+    } catch (error) {
+      console.error('보도자료 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('/api/articles/EVENT/latest');
+      setEvents([response.data]);
+    } catch (error) {
+      console.error('행사정보를 가져오는데 문제가 발생했습니다:', error);
+    }
+  };
+
+  fetchPress();
+  fetchEvents();
+
+/*   return () => {
+    isMounted = false;
+  }; */
+}, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -205,7 +274,7 @@ const fetchEvents = async () => {
               <S.Text>RECENT NEWS</S.Text>
 
                 {/* 보도자료 */}
-                <S.PressContainer>
+{/*                 <S.PressContainer>
                   {press.map((item, index) => (
                     <S.Press key={index}>
                       <div>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</div>
@@ -213,10 +282,10 @@ const fetchEvents = async () => {
                       <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
                     </S.Press>
                   ))}
-                </S.PressContainer>
+                </S.PressContainer> */}
 
                 {/* 행사정보 */}
-                <S.EventContainer>
+{/*                 <S.EventContainer>
                   {events.map((item, index) => (
                     <S.Event key={index}>
                       <div>{item.title.length > 10 ? `${item.title.substring(0, 10)}...` : item.title}</div>
@@ -224,7 +293,36 @@ const fetchEvents = async () => {
                       <div>{item.content.length > 60 ? `${item.content.substring(0, 60)}...` : item.content}</div>
                     </S.Event>
                   ))}
-                </S.EventContainer>
+                </S.EventContainer> */}
+                <S.PressContainer>
+  {press && press.length > 0 ? (
+    press.map((item, index) => (
+      <S.Press key={index}>
+        <div>{item.title}</div>
+        <div>{formatDate(item.createdAt)}</div>
+        <div>{item.content}</div>
+      </S.Press>
+    ))
+  ) : (
+    <div>No press data available</div>
+  )}
+</S.PressContainer>
+
+<S.EventContainer>
+  {events && events.length > 0 ? (
+    events.map((item, index) => (
+      <S.Event key={index}>
+        <div>{item.title}</div>
+        <div>{formatDate(item.createdAt)}</div>
+        <div>{item.content}</div>
+      </S.Event>
+    ))
+  ) : (
+    <div>No event data available</div>
+  )}
+</S.EventContainer>
+
+      
 
 
             </S.TextContainer>

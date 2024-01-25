@@ -1,8 +1,8 @@
 {
   "name": "umust-homepage-fe",
   "version": "0.1.0",
-  "homepage": "https://umust-hompage.vercel.app/",
   "private": true,
+  "homepage": "https://umust-hompage.vercel.app/",
   "dependencies": {
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.3",
@@ -24,9 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postbuild": "cp build/index.html build/404.html",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   
   "eslintConfig": {
@@ -46,5 +44,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy" : "https://eb-umust.umust302.shop"
 }
